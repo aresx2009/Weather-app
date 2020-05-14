@@ -63,6 +63,8 @@ $(document).ready(function () {
                 method: "GET"
             }).then(function (forecastResponse) {
                 console.log(forecastResponse);
+                // $("#5forecast").empty();
+                // Card1
                 var date1 = $("<h6>").text(forecastResponse.daily[0].dt);
                 var icon1 = $("<img src='http://openweathermap.org/img/wn/" + forecastResponse.daily[0].weather[0].icon + "@2x.png'>");
                 var T1 = forecastResponse.daily[0].temp.day;
@@ -71,6 +73,42 @@ $(document).ready(function () {
                 var H1 = $("<h6>").text("Humidity: " + forecastResponse.daily[0].humidity);
 
                 $("#card1").append(date1, icon1, temp1, H1);
+                // Card2
+                var date2 = $("<h6>").text(forecastResponse.daily[1].dt);
+                var icon2 = $("<img src='http://openweathermap.org/img/wn/" + forecastResponse.daily[1].weather[0].icon + "@2x.png'>");
+                var T2 = forecastResponse.daily[1].temp.day;
+                var newT2 = ((T2 - 273.15) * 9 / 5 + 32).toFixed(2);
+                var temp2 = $("<h6>").text("Temperature: " + newT2);
+                var H2 = $("<h6>").text("Humidity: " + forecastResponse.daily[1].humidity);
+
+                $("#card2").append(date2, icon2, temp2, H2);
+                // card3
+                var date3 = $("<h6>").text(forecastResponse.daily[2].dt);
+                var icon3 = $("<img src='http://openweathermap.org/img/wn/" + forecastResponse.daily[2].weather[0].icon + "@2x.png'>");
+                var T3 = forecastResponse.daily[2].temp.day;
+                var newT3 = ((T3 - 273.15) * 9 / 5 + 32).toFixed(2);
+                var temp3 = $("<h6>").text("Temperature: " + newT3);
+                var H3 = $("<h6>").text("Humidity: " + forecastResponse.daily[2].humidity);
+
+                $("#card3").append(date3, icon3, temp3, H3);
+                // card4
+                var date4 = $("<h6>").text(forecastResponse.daily[3].dt);
+                var icon4 = $("<img src='http://openweathermap.org/img/wn/" + forecastResponse.daily[3].weather[0].icon + "@2x.png'>");
+                var T4 = forecastResponse.daily[3].temp.day;
+                var newT4 = ((T4 - 273.15) * 9 / 5 + 32).toFixed(2);
+                var temp4 = $("<h6>").text("Temperature: " + newT4);
+                var H4 = $("<h6>").text("Humidity: " + forecastResponse.daily[3].humidity);
+
+                $("#card4").append(date4, icon4, temp4, H4);
+                // card5
+                var date5 = $("<h6>").text(forecastResponse.daily[4].dt);
+                var icon5 = $("<img src='http://openweathermap.org/img/wn/" + forecastResponse.daily[4].weather[0].icon + "@2x.png'>");
+                var T5 = forecastResponse.daily[4].temp.day;
+                var newT5 = ((T5 - 273.15) * 9 / 5 + 32).toFixed(2);
+                var temp5 = $("<h6>").text("Temperature: " + newT5);
+                var H5 = $("<h6>").text("Humidity: " + forecastResponse.daily[4].humidity);
+
+                $("#card5").append(date5, icon5, temp5, H5);
             });
         });
 
