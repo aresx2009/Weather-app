@@ -11,7 +11,7 @@
 $(document).ready(function () {
     chooseCity();
     function chooseCity(city) {
-        $("#button-view").empty();
+        $("#user-weather").empty();
         $("#input-weather").val("");
         $.ajax({
             url: "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=c99414b93ced2946b80143c12aa16115",
@@ -23,12 +23,14 @@ $(document).ready(function () {
             var cityname = $("<h2>").text("City: " + weatherResponse.name);
             // var currentDate = ("<h5>").unix(response.dt).format("L");
             // console.log("current date" + currentDate);
-            // var date = Response.dt;
-            // Console.log(date);
+            var date = Response.dt;
+            Console.log(date);
             // var citydate = $("<p>").text(moment.unix(date).format("L"))
             // console.log("current date" + currentDate);
+            var TempK = weatherResponse.main.temp;
+            var newTemp = ((TempK - 273.15) * 9 / 5 + 32).toFixed(2)
             var weathericon = $("<img src='http://openweathermap.org/img/wn/" + weatherResponse.weather[0].icon + "@2x.png'>");
-            var citytemp = $("<h5>").text("Temperature: " + weatherResponse.main.temp);
+            var citytemp = $("<h5>").text("Temperature: " + newTemp);
             var cityhumidity = $("<h5>").text("Humidity: " + weatherResponse.main.humidity);
             var citywindspeed = $("<h5>").text("Wind Speed: " + weatherResponse.wind.speed);
 
