@@ -3,9 +3,15 @@
 
 // var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=";
 
-// cityArray = JSON.parse(localStorage.getitem("city")) || [];
+// var city = citiesArray[citiesArray.length - 1];
+
 $(document).ready(function () {
-    chooseCity();
+
+    // cityArray = JSON.parse(localStorage.getItem("cities")) || [];
+    // fiveDay(city);
+    // chooseCity(city);
+
+    chooseCity("Dallas");
     function chooseCity(city) {
         $("#user-weather").empty();
         $("#card1").empty();
@@ -122,3 +128,40 @@ $(document).ready(function () {
     };
 
 });
+
+// function renderButtons() {
+//     $(".list-group").empty();
+
+//     for (var i = 0; i < citiesArray.length; i++) {
+//         var a = $("<li>");
+//         a.addClass("cityName");
+//         a.addClass("list-group-item");
+//         a.attr("data-name", citiesArray[i]);
+//         a.text(citiesArray[i]);
+//         $(".list-group").append(a);
+//     }
+
+// }
+
+
+// $("add-city").on("sunmit", function (event) {
+//     event.preventDefault();
+//     var city = $("input-weather").val().trim();
+//     var containsCity = false;
+//     if (citiesArray != null) {
+
+//         $(citiesArray).each(function (x) {
+//             if (citiesArray[x] === city) {
+//                 containsCity = ture;
+//             }
+//         });
+//         if (containsCity === false) {
+//             citiesArray.push(city);
+//         }
+//         localStorage.setItem("cities", JSON.stringify(citiesArray));
+//         fiveDay(city);
+//         chooseCity(city);
+//         renderButtons();
+//     }
+// });
+// renderButtons();
