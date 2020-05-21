@@ -126,11 +126,41 @@ $(document).ready(function () {
             chooseCity(city);
         });
     };
+    // Local Storage
+    if (window.localStorage.getItem('cities')) {
+        var indexCity = (JSON.parse(window.localStorage.getItem('cities')).length - 1)
+        chooseCity(JSON.parse(window.localStorage.getItem('cities'))[indexCity])
+
+        for (let i = 0; i < 8; i++) {
+            var searchedCity = $('<button>')
+            searchedCity.text(JSON.parse(window.localStorage.getItem('cities'))[i])
+
+            $('#prev-searches').append(searchedCity)
+        };
+    };
+
+    $("#search-city").on("submit", function (event) {
+        event.preventDefault();
+        location.reload(true);
+
+        var cityArr;
+        if (window.localStorage.getItem('cities')) {
+            cityArr = JSON.parse(window.localStorage.getItem('cities'))
+        } else {
+            cityArr = []
+        }
+        var city = $("#search-city").val();
+        cityArr.push(city)
+
+        window.localStorage.setItem('cities', JSON.stringify(cityArr));
+
+        chooseCity(city);
+    });
 
 });
 
 // function renderButtons() {
-//     $(".list-group").empty();
+//     // $(".list-group").empty();
 
 //     for (var i = 0; i < citiesArray.length; i++) {
 //         var a = $("<li>");
@@ -143,6 +173,7 @@ $(document).ready(function () {
 
 // }
 
+// renderButtons();
 
 // $("add-city").on("sunmit", function (event) {
 //     event.preventDefault();
@@ -164,4 +195,3 @@ $(document).ready(function () {
 //         renderButtons();
 //     }
 // });
-// renderButtons();
