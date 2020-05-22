@@ -11,7 +11,7 @@ $(document).ready(function () {
     // fiveDay(city);
     // chooseCity(city);
 
-    chooseCity("Dallas");
+    // chooseCity("Dallas");
     function chooseCity(city) {
         $("#user-weather").empty();
         $("#card1").empty();
@@ -131,12 +131,12 @@ $(document).ready(function () {
         var indexCity = (JSON.parse(window.localStorage.getItem('cities')).length - 1)
         chooseCity(JSON.parse(window.localStorage.getItem('cities'))[indexCity])
 
-        for (let i = 0; i < 8; i++) {
-            var searchButton = $('<button>')
-            searchButton.text(JSON.parse(window.localStorage.getItem('cities'))[i])
+        // for (let i = 0; i < 8; i++) {
+        //     var searchButton = $('<button>')
+        //     searchButton.text(JSON.parse(window.localStorage.getItem('cities'))[i])
 
-            $('#prev-searches').append(searchedCity)
-        };
+        //     $('#button-view').append(searchedCity)
+        // };
     };
 
     $("#search-city").on("submit", function (event) {
@@ -157,7 +157,25 @@ $(document).ready(function () {
         chooseCity(city);
     });
 
+    function CityButtons() {
+        var getCities = JSON.parse(localStorage.getItem('cities'));
 
+        getCities.forEach(function (city) {
+            var Buttons = $("<input>").attr({
+                type: "button",
+                class: "buttons",
+                value: city
+            });
+
+            $("#button-view").append(Buttons);
+
+            Buttons.on("click", function (event) {
+                event.preventDefault();
+                chooseCity(city);
+            });
+        });
+    };
+    CityButtons();
 
 
 
