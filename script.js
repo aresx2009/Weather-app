@@ -7,11 +7,6 @@
 
 $(document).ready(function () {
 
-    // cityArray = JSON.parse(localStorage.getItem("cities")) || [];
-    // fiveDay(city);
-    // chooseCity(city);
-
-    // chooseCity("Dallas");
     function chooseCity(city) {
         $("#user-weather").empty();
         $("#card1").empty();
@@ -116,27 +111,12 @@ $(document).ready(function () {
                 $("#card5").append(date5, icon5, temp5, H5);
             });
         });
-
-
-
-
-        // $("#search-city").on("submit", function (event) {
-        //     var city = $("#input-weather").val();
-        //     event.preventDefault()
-        //     chooseCity(city);
-        // });
     };
     // Local Storage
     if (window.localStorage.getItem('cities')) {
         var indexCity = (JSON.parse(window.localStorage.getItem('cities')).length - 1)
         chooseCity(JSON.parse(window.localStorage.getItem('cities'))[indexCity])
 
-        // for (let i = 0; i < 8; i++) {
-        //     var searchButton = $('<button>')
-        //     searchButton.text(JSON.parse(window.localStorage.getItem('cities'))[i])
-
-        //     $('#button-view').append(searchedCity)
-        // };
     };
 
     $("#search-city").on("submit", function (event) {
@@ -177,47 +157,4 @@ $(document).ready(function () {
     };
     CityButtons();
 
-
-
-
-
 });
-
-
-
-// function renderButtons() {
-//     // $(".list-group").empty();
-
-//     for (var i = 0; i < citiesArray.length; i++) {
-//         var a = $("<li>");
-//         a.addClass("cityName");
-//         a.addClass("list-group-item");
-//         a.attr("data-name", citiesArray[i]);
-//         a.text(citiesArray[i]);
-//         $(".list-group").append(a);
-//     }
-
-// }
-
-// renderButtons();
-
-// $("add-city").on("sunmit", function (event) {
-//     event.preventDefault();
-//     var city = $("input-weather").val().trim();
-//     var containsCity = false;
-//     if (citiesArray != null) {
-
-//         $(citiesArray).each(function (x) {
-//             if (citiesArray[x] === city) {
-//                 containsCity = ture;
-//             }
-//         });
-//         if (containsCity === false) {
-//             citiesArray.push(city);
-//         }
-//         localStorage.setItem("cities", JSON.stringify(citiesArray));
-//         fiveDay(city);
-//         chooseCity(city);
-//         renderButtons();
-//     }
-// });
