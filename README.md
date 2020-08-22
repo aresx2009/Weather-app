@@ -5,7 +5,7 @@
         <img src= "https://img.shields.io/badge/contributor-Bro!-red">
     </a>
   </p>
-  App link: https://aresx2009.github.io/homework6/<br>
+  App link: https://aresx2009.github.io/Weather-app/<br>
   Description<br>
   Search current and 5-days forecast by city name
 
